@@ -1,0 +1,21 @@
+- delete database, populate it (for prof to be able to populte)
+- prevent duplicate word added
+- make image size big to fit the layout
+- make first letter of word
+
+
+DONE
+- show all, active, inactive buttons
+- layout on home
+- fix floating button on home page
+- make scrollable, home, search
+- buckbotton, navigation for back
+- fix json parser
+- - for search result, if there's no result, return no result found, and if word found and no defs come, show something else too
+- activate word, inactivate word (update query)
+- image status
+- keep the switch on the same state as database in definition
+- reset search result whenever comes back
+- show image
+- definition scrollable
+- do the same for add word

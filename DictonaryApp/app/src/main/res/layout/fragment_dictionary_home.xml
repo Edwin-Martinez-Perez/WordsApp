@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="edu.noctrl.fall23_330.dictonaryapp.viewmodel.DictionaryViewViewModel" />
+
+        <variable
+            name="dictionaryHomeFragment"
+            type="edu.noctrl.fall23_330.dictonaryapp.ui.DictionaryHomeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F5FF">
+
+        <TextView
+            android:id="@+id/words_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/words"
+            android:textSize="35dp"
+            android:textColor="#2E3A59"
+            app:layout_constraintBottom_toTopOf="@id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="100dp" />
+
+        <!--android:onClick="@{()-> dictionaryHomeFragment.showAllWords()}"-->
+        <Button
+            android:id="@+id/show_all_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show All"
+            app:layout_constraintEnd_toStartOf="@id/active_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+        <!-- android:onClick="@{()-> dictionaryHomeFragment.showActiveWords()}" -->
+        <Button
+            android:id="@+id/active_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active"
+            app:layout_constraintEnd_toStartOf="@id/inactive_button"
+            app:layout_constraintStart_toEndOf="@id/show_all_button"
+            app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+        <!-- android:onClick="@{()-> dictionaryHomeFragment.showInactiveWords()}" -->
+        <Button
+            android:id="@+id/inactive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inactive"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/active_button"
+            app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+        <TextView
+            android:id="@+id/word_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Word"
+            android:textColor="#2E3A59"
+            android:layout_marginStart="65dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+
+        <TextView
+            android:id="@+id/image_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Image"
+            android:textColor="#2E3A59"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/word_text"
+            app:layout_constraintEnd_toStartOf="@id/status_text"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textColor="#2E3A59"
+            android:layout_marginEnd="80dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="200dp" />
+
+        <!-- app:listData="@{viewModel.words}" -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:layout_marginHorizontal="40dp"
+            android:padding="8dp"
+            android:textColor="#2E3A59"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2"
+            tools:listitem="@layout/home_word_item" />
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- android:onClick="@{()-> dictionaryHomeFragment.goToSearchWord()}" -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_button"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{()-> dictionaryHomeFragment.goToSearchWord()}"
+            android:background="@drawable/gradient_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_add_darkblue_24"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dictionaryHomeFragment">
+
+    <fragment
+        android:id="@+id/dictionaryHomeFragment"
+        android:name="edu.noctrl.fall23_330.dictonaryapp.ui.DictionaryHomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_dictionaryHomeFragment_to_wordSearchFragment"
+            app:destination="@id/wordSearchFragment" />
+        <action
+            android:id="@+id/action_dictionaryHomeFragment_to_wordDefinitionFragment"
+            app:destination="@id/wordDefinitionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordSearchFragment"
+        android:name="edu.noctrl.fall23_330.dictonaryapp.ui.WordSearchFragment"
+        android:label="Search Word" >
+        <action
+            android:id="@+id/action_wordSearchFragment_to_addWordFragment"
+            app:destination="@id/addWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWordFragment"
+        android:name="edu.noctrl.fall23_330.dictonaryapp.ui.AddWordFragment"
+        android:label="Add Word"
+        tools:layout="@layout/fragment_add_word" >
+        <action
+            android:id="@+id/action_addWordFragment_to_dictionaryHomeFragment"
+            app:destination="@id/dictionaryHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordDefinitionFragment"
+        android:name="edu.noctrl.fall23_330.dictonaryapp.ui.WordDefinitionFragment"
+        android:label="Word Definition"
+        tools:layout="@layout/fragment_word_definition" />
+</navigation>
